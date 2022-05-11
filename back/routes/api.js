@@ -3,7 +3,7 @@ const { check, validationResult } = require("express-validator");
 
 const Usuario = require("../models/usuario");
 
-//usuarios
+//registro usuarios
 
 router.get("/api/usuarios", async (req, res) => {
   console.log(req.payload);
@@ -85,5 +85,18 @@ router.delete("api/usuarios/:usuarioId", async (req, res) => {
     res.status(503).json({ error: err });
   }
 });
+
+
+//login usuarios
+router.get("/api/login/:nombre", async (req, res) => {
+  try {
+    const usuario = await Usuario.findById(req.params.nombre);
+    res.json(usuario);
+  } catch (err) {
+    res.status(503).json({ error: err });
+  }
+});
+
+
 
 module.exports = router;
