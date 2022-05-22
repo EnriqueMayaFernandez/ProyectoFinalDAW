@@ -1,3 +1,5 @@
-.fondo{
-    background-image:url("../../images/bram-naus-n8Qb1ZAkK88-unsplash.jpg") ;
+.imagenFondo {
+    background-image: url("../../images/imagenFondo.jpg");
+    background-repeat: no-repeat;
+
 }

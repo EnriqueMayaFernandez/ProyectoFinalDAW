@@ -2,8 +2,7 @@ import React from "react";
 
 export default function Explicacion() {
   return (
-    <>
-      <div className="min-h-screen">
+      <div className="min-h-screen ml-8 mr-8 bg-slate-300 border border-black rounded-md p-2 ">
         <h1 className="text-lg font-bold">The standard Lorem Ipsum passage, used since the 1500s</h1>
         <p>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -84,6 +83,5 @@ export default function Explicacion() {
           endures pains to avoid worse pains."
         </p>
       </div>
-    </>
   );
 }
