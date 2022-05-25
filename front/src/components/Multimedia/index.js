@@ -10,6 +10,7 @@ export default function Multimedia() {
           height="100%"
           controls
           playing
+          muted
           />
         </div>
       </div>

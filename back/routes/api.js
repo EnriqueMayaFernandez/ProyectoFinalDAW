@@ -8,7 +8,7 @@ const Usuario = require("../models/usuario");
 router.get("/api/usuarios", async (req, res) => {
   console.log(req.payload);
   try {
-    const usuarios = await Usuario.find();
+    const usuarios = await Usuario.find().sort({nombreUsuario:1});
     res.json(usuarios);
   } catch (err) {
     res.status(503).json({ error: err });
@@ -41,12 +41,7 @@ router.post(
       .notEmpty()
       .exists()
       .isLength({ max: 20 }),
-    check(
-      "tipo",
-      "El tipo debe incluirse en la petecion"
-    )
-      .notEmpty()
-      .exists(),
+    check("tipo", "El tipo debe incluirse en la petecion").notEmpty().exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -62,7 +57,7 @@ router.post(
   }
 );
 
-router.put("api/usuarios/:usuarioId", async (req, res) => {
+router.put("/api/usuarios/:usuarioId", async (req, res) => {
   try {
     const usuarioActualizado = await Usuario.findByIdAndUpdate(
       req.params.usuarioId,
@@ -75,7 +70,7 @@ router.put("api/usuarios/:usuarioId", async (req, res) => {
   }
 });
 
-router.delete("api/usuarios/:usuarioId", async (req, res) => {
+router.delete("/api/usuarios/:usuarioId", async (req, res) => {
   try {
     const usuarioBorrado = await Usuario.findByIdAndDelete(
       req.params.usuarioId
@@ -86,17 +81,14 @@ router.delete("api/usuarios/:usuarioId", async (req, res) => {
   }
 });
 
-
 //login usuarios
-router.get("/api/login/:nombre", async (req, res) => {
+router.get("/api/login/:nombreUser&:claveUser", async (req, res) => {
   try {
-    const usuario = await Usuario.findById(req.params.nombre);
+    const usuario = await Usuario.findOne({ nombreUsuario: req.params.nombreUser,clave: req.params.claveUser });
     res.json(usuario);
   } catch (err) {
     res.status(503).json({ error: err });
   }
 });
-
-
 
 module.exports = router;

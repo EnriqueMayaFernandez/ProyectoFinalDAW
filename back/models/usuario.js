@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 let proyectoSchema = new Schema({
   nombreUsuario: String,
   clave: String,
-  tipo: Number
+  tipo: Number,
+  correo: String
 });
 
 module.exports = mongoose.model('Usuario', proyectoSchema);

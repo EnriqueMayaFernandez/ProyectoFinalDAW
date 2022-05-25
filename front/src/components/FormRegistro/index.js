@@ -54,7 +54,7 @@ export default function FormRegister() {
           console.log(values);
           cambiarFormularioEnviado(true);
           setTimeout(() => cambiarFormularioEnviado(false), 5000);
-          //PostUsuarios(values);
+          PostUsuarios(values);
           navigate("/login");
         }}
       >
@@ -89,7 +89,7 @@ export default function FormRegister() {
                 Contraseña
               </label>
               <Field
-                type="text"
+                type="password"
                 id="clave"
                 name="clave"
                 placeholder=""
@@ -110,7 +110,7 @@ export default function FormRegister() {
                 Repita la Contraseña
               </label>
               <Field
-                type="text"
+                type="password"
                 id="claveRepetida"
                 name="claveRepetida"
                 placeholder=""

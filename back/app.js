@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+const bodyParser = require('body-parser')
+const cors = require("cors")
 require("dotenv").config();
 require("./db");
 
@@ -11,6 +12,15 @@ app.use(
     extended: true
   })
 );
+
+app.use(bodyParser.json())
+
+const corsOptions ={
+  origin:'*',
+  credentials: true,
+  optionSuccessStatus:200,
+}
+app.use(cors(corsOptions))
 
 app.use(apiRouter);
 

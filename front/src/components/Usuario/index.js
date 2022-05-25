@@ -1,23 +1,45 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-export default function Usuario() {
+export default function Usuario({
+  id,
+  nombreUsuario,
+  clave,
+  tipo,
+  correo,
+  funcionBorrar,
+  funcionModificar,
+}) {
+  const [tipoUser, setTipoUser] = useState();
 
-    const navigate = useNavigate();
-
-    const modificar = () => {
-      navigate("/adminModificar");
-    };
+  useEffect(() => {
+    if (tipo === 0) {
+      setTipoUser("Admin");
+    } else {
+      setTipoUser("Normal");
+    }
+  }, []);
 
   return (
-    <>
-      <div className="grid grid-cols-5 gap-4 text-center">
-        <div>Monolito</div>
-        <div>Manolito@gmail.com</div>
-        <div>Normal</div>
-        <button className="bg-red-500 rounded p-1 shadow-md">Borrar</button>
-        <button onClick={modificar} className="bg-green-500 rounded p-1 shadow-md">Modificar</button>
-      </div>
-    </>
+    <div className="grid grid-cols-5 gap-4 text-center">
+      <div>{nombreUsuario}</div>
+      <div>{correo}</div>
+      <div>{tipoUser}</div>
+      <button
+        onClick={() => {
+          funcionBorrar(id);
+        }}
+        className="bg-red-500 rounded p-1 shadow-md"
+      >
+        Borrar
+      </button>
+      <button
+        onClick={() => {
+          funcionModificar();
+        }}
+        className="bg-green-500 rounded p-1 shadow-md"
+      >
+        Modificar
+      </button>
+    </div>
   );
 }

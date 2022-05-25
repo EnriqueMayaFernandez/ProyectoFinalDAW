@@ -1,9 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import getUsuario from "../../services/getUsuario";
 
 export default function FormLogin() {
   const navigate = useNavigate();
+  const [usuario,setUsuario]=useState(null);
+
+  async function recibirUsuario(values) {
+    let  usuario  = await getUsuario(values.nombreUsuario, values.clave);
+    console.log(usuario.tipo)
+    if (usuario !== null) {
+      if (usuario.tipo == "0") {
+        navigate("/admin");
+      } else {
+        alert("Nos vamos a nodered");
+        //navigate("/nodered");
+      }
+    }
+  }
 
   const volver = () => {
     navigate("/");
@@ -32,19 +47,8 @@ export default function FormLogin() {
         return errores;
       }}
       onSubmit={(values, { resetForm }) => {
+        recibirUsuario(values)
         resetForm();
-        console.log(values);
-        let usuario = {
-          tipo: "0",
-        };
-        //PostUsuarios(values);
-        if (usuario != null) {
-          if (usuario.tipo == 0) {
-            navigate("/admin");
-          } else {
-            navigate("/nodered");
-          }
-        }
       }}
     >
       {({ errors }) => (
@@ -80,7 +84,7 @@ export default function FormLogin() {
                 Contraseña
               </label>
               <Field
-                type="text"
+                type="password"
                 id="clave"
                 name="clave"
                 placeholder=""
@@ -115,8 +119,7 @@ export default function FormLogin() {
                 Registrarse
               </Link>
             </div>
-            <div className="w-full flex flex-row">
-            </div>
+            <div className="w-full flex flex-row"></div>
           </Form>
         </div>
       )}
