@@ -17,7 +17,8 @@ export default function ListaUsuarios() {
   }, []);
 
 
-  const modificar = () => {
+  const modificar = (usuario) => {
+    window.localStorage.setItem("usuarioModificar",JSON. stringify(usuario));
     navigate("/adminModificar");
     //crear objeto usuarioModificar
   };
@@ -34,7 +35,7 @@ export default function ListaUsuarios() {
   }
 
   return (
-    <div className="border w-3/4">
+    <div className="border w-3/4 min-h-screen">
       <header className="sticky top-0 z-50 rounded-sm">
           <div className="bg-slate-500 p-4 grid grid-cols-5 rounded-sm">
             <Link to="/adminRegistro" className="justify-self-start bg-rose-500 rounded-sm shadow-md p-1 text-center">
@@ -57,9 +58,9 @@ export default function ListaUsuarios() {
             </div>
           </div>
         </header>
-      <div className="space-y-6 pt-3 bg-white pr-3">
+      <div className="min-h-screen space-y-6 pt-3 bg-white pr-3">
           {usuarios &&
-            usuarios.map((usuario) => ( usuario.nombreUsuario!=="Admin" ? 
+            usuarios.map((usuario) => ( usuario.nombreUsuario!=="SuperAdmin" ? 
               <Usuario
                 key={usuario._id}
                 id={usuario._id}
@@ -69,6 +70,7 @@ export default function ListaUsuarios() {
                 correo={usuario.correo}
                 funcionBorrar={borrar}
                 funcionModificar={modificar}
+                usuario={usuario}
               /> : null
             ))}
       </div>

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import PostUsuarios from "../../services/postUsuarios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 
 export default function FormRegister() {
-  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const navigate = useNavigate();
 
   const volver = () => {
@@ -18,7 +17,7 @@ export default function FormRegister() {
           nombreUsuario: "",
           clave: "",
           claveRepetida: "",
-          tipo: "",
+          tipo: "0",
           correo: "",
         }}
         validate={(values) => {
@@ -27,6 +26,8 @@ export default function FormRegister() {
           //Validacion
           if (!values.nombreUsuario) {
             errores.nombreUsuario = "Por favor ingrese un nombre de usuario";
+          }else if(values.nombreUsuario.length>25){
+            errores.nombreUsuario = "El nombre del usuario no puede ser mayor a 25 caracteres"
           }
 
           if (!values.clave) {
@@ -51,11 +52,8 @@ export default function FormRegister() {
         }}
         onSubmit={(values, { resetForm }) => {
           resetForm();
-          console.log(values);
-          cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 5000);
-          //PostUsuarios(values);
-          navigate("/login");
+          PostUsuarios(values);
+          navigate("/admin");
         }}
       >
         {({ errors }) => (
@@ -89,7 +87,7 @@ export default function FormRegister() {
                 Contraseña
               </label>
               <Field
-                type="text"
+                type="password"
                 id="clave"
                 name="clave"
                 placeholder=""
@@ -110,7 +108,7 @@ export default function FormRegister() {
                 Repita la Contraseña
               </label>
               <Field
-                type="text"
+                type="password"
                 id="claveRepetida"
                 name="claveRepetida"
                 placeholder=""
@@ -153,8 +151,8 @@ export default function FormRegister() {
                 Tipo
               </label>
               <Field as="select" name="tipo" className="bg-slate-200 w-9/12 rounded-r-lg border-black w-3/4 p-1 shadow-md">
-                <option value="0">Normal</option>
-                <option value="1">Admin</option>
+                <option value="0">Admin</option>
+                <option value="1">Normal</option>
               </Field>
             </div>
 
@@ -165,9 +163,6 @@ export default function FormRegister() {
               >
                 Insertar Usuario
               </button>
-              {formularioEnviado && (
-                <p className="bg-green-500">Formulario enviado con exito!</p>
-              )}
               <button
                 type="button"
                 onClick={volver}

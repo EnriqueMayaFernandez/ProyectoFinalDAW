@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 
 export default function FormRegister() {
-  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const navigate = useNavigate();
 
   const volver = () => {
@@ -51,9 +50,6 @@ export default function FormRegister() {
         }}
         onSubmit={(values, { resetForm }) => {
           resetForm();
-          console.log(values);
-          cambiarFormularioEnviado(true);
-          setTimeout(() => cambiarFormularioEnviado(false), 5000);
           PostUsuarios(values);
           navigate("/login");
         }}
@@ -152,9 +148,6 @@ export default function FormRegister() {
               >
                 Insertar Usuario
               </button>
-              {formularioEnviado && (
-                <p className="bg-green-500">Formulario enviado con exito!</p>
-              )}
               <button
                 type="button"
                 onClick={volver}

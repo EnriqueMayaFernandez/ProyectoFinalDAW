@@ -10,14 +10,14 @@ export default function FormLogin() {
   async function recibirUsuario(values) {
     let  usuario  = await getUsuario(values.nombreUsuario, values.clave);
     console.log(usuario.tipo)
-    if (usuario !== null) {
       if (usuario.tipo == "0") {
         navigate("/admin");
-      } else {
+      } else if(usuario.tipo == "1") {
         alert("Nos vamos a nodered");
         //navigate("/nodered");
+      }else{
+        alert("El nombre de usuario o contraseña son incorrectos")
       }
-    }
   }
 
   const volver = () => {

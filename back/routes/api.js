@@ -8,7 +8,7 @@ const Usuario = require("../models/usuario");
 router.get("/api/usuarios", async (req, res) => {
   console.log(req.payload);
   try {
-    const usuarios = await Usuario.find().sort({nombreUsuario:1});
+    const usuarios = await Usuario.find().sort({ nombreUsuario: 1 });
     res.json(usuarios);
   } catch (err) {
     res.status(503).json({ error: err });
@@ -49,8 +49,16 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     try {
-      const nuevoUsuario = await Usuario.create(req.body);
-      res.json(nuevoUsuario);
+      const usuarioExiste = await Usuario.findOne({
+        nombreUsuario: req.body.nombreUsuario,
+      });
+      if (usuarioExiste == null) {
+        const nuevoUsuario = await Usuario.create(req.body);
+        res.json(nuevoUsuario);
+      }else{
+        //el nombre de usuario ya existe
+        throw 400;
+      }
     } catch (err) {
       res.status(503).json({ error: err });
     }
@@ -59,12 +67,20 @@ router.post(
 
 router.put("/api/usuarios/:usuarioId", async (req, res) => {
   try {
+    const usuarioExiste = await Usuario.findOne({
+      nombreUsuario: req.body.nombreUsuario,
+    });
+    if (usuarioExiste == null) {
     const usuarioActualizado = await Usuario.findByIdAndUpdate(
       req.params.usuarioId,
       req.body,
       { new: true }
     );
     res.json(usuarioActualizado);
+    }else{
+      //el nombre de usuario ya existe
+      throw 400; 
+    }
   } catch (err) {
     res.status(503).json({ error: err });
   }
@@ -84,8 +100,17 @@ router.delete("/api/usuarios/:usuarioId", async (req, res) => {
 //login usuarios
 router.get("/api/login/:nombreUser&:claveUser", async (req, res) => {
   try {
-    const usuario = await Usuario.findOne({ nombreUsuario: req.params.nombreUser,clave: req.params.claveUser });
-    res.json(usuario);
+    const usuario = await Usuario.findOne({
+      nombreUsuario: req.params.nombreUser,
+      clave: req.params.claveUser,
+    });
+    if(usuario!==null){
+      res.json(usuario);
+    }else{
+      //el usuario o la contraseña son incorrectos
+      throw 400 
+    }
+    
   } catch (err) {
     res.status(503).json({ error: err });
   }

@@ -8,6 +8,7 @@ export default function Usuario({
   correo,
   funcionBorrar,
   funcionModificar,
+  usuario
 }) {
   const [tipoUser, setTipoUser] = useState();
 
@@ -34,7 +35,7 @@ export default function Usuario({
       </button>
       <button
         onClick={() => {
-          funcionModificar();
+          funcionModificar(usuario);
         }}
         className="bg-green-500 rounded p-1 shadow-md"
       >
