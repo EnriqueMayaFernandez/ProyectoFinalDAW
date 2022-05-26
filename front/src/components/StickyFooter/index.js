@@ -5,7 +5,7 @@ import iconoCorreo from "../../images/iconoCorreo.png";
 
 export default function Footer() {
   return (
-    <div className="h-44 w-full bg-slate-800 text-center text-white grid grid-cols-3">
+    <div className="h-44 w-full bg-space-cadet text-center text-white grid grid-cols-3">
       <div className="flex align-middle m-auto">
         <span>
           <img src={iconoTelefono} alt="" className="w-9 bg-white rounded-md" />

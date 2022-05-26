@@ -52,12 +52,12 @@ export default function FormLogin() {
       }}
     >
       {({ errors }) => (
-        <div className="w-2/5 bg-slate-100 p-12 rounded-lg border-black border-2 mt-24">
+        <div className="w-2/5 bg-white p-12 rounded-lg border-black border-2 mt-24">
           <Form className="space-y-2.5 flex flex-col items-center">
             <div className="w-full flex flex-row">
               <label
                 htmlFor="nombreUsuario"
-                className="text-center bg-slate-400 w-1/4 rounded-l-lg p-1 shadow-md"
+                className="text-center bg-blush w-1/4 rounded-l-lg p-1 shadow-md"
               >
                 Nombre Usuario
               </label>
@@ -66,20 +66,20 @@ export default function FormLogin() {
                 id="nombreUsuario"
                 name="nombreUsuario"
                 placeholder="Manolito14"
-                className="bg-slate-200 w-3/4 rounded-r-lg border-black p-1 shadow-md"
+                className="bg-alice-blue w-3/4 rounded-r-lg border-black p-1 shadow-md"
               />
             </div>
             <ErrorMessage
               name="nombreUsuario"
               component={() => (
-                <div className="text-red-600">{errors.nombreUsuario}</div>
+                <div className="text-red">{errors.nombreUsuario}</div>
               )}
             />
 
             <div className="w-full flex flex-row">
               <label
                 htmlFor="clave"
-                className="text-center bg-slate-400 w-3/12 rounded-l-lg p-1 shadow-md"
+                className="text-center bg-blush w-3/12 rounded-l-lg p-1 shadow-md"
               >
                 Contraseña
               </label>
@@ -88,19 +88,19 @@ export default function FormLogin() {
                 id="clave"
                 name="clave"
                 placeholder=""
-                className="bg-slate-200 w-9/12 rounded-r-lg border-black w-3/4 p-1 shadow-md"
+                className="bg-alice-blue w-9/12 rounded-r-lg border-black w-3/4 p-1 shadow-md"
               />
             </div>
             <ErrorMessage
               name="clave"
               component={() => (
-                <div className="text-red-600">{errors.clave}</div>
+                <div className="text-red">{errors.clave}</div>
               )}
             />
             <div className="w-full flex flex-row">
               <button
                 type="submit"
-                className="bg-sky-300 w-full rounded p-1 shadow-md mt-6"
+                className="bg-paradise-pink w-full rounded p-1 shadow-md mt-6"
               >
                 Login
               </button>
@@ -109,7 +109,7 @@ export default function FormLogin() {
               <button
                 type="button"
                 onClick={volver}
-                className="bg-sky-300 w-full rounded p-1 shadow-md"
+                className="bg-paradise-pink w-full rounded p-1 shadow-md"
               >
                 Volver
               </button>

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <div className="bg-slate-600 flex flex-col items-center space-y-24">
+      <div className="bg-shadow-blue flex flex-col items-center space-y-24">
         <Banner></Banner>
         <Imagenes></Imagenes>
         <Explicacion></Explicacion>

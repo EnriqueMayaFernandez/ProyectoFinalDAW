@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Explicacion() {
   return (
-      <div className="min-h-screen ml-8 mr-8 bg-slate-300 border border-black rounded-md p-2 ">
+      <div className="min-h-screen ml-8 mr-8 bg-white border border-black rounded-md p-2 shadow-2xl">
         <h1 className="text-lg font-bold">The standard Lorem Ipsum passage, used since the 1500s</h1>
         <p>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

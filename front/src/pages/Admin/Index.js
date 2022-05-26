@@ -7,7 +7,7 @@ export default function Admin() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-items-center bg-slate-200">
+      <div className="flex flex-col items-center justify-items-center">
         <ListaUsuarios />
       </div>
     </>
