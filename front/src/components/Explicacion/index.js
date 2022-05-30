@@ -2,86 +2,60 @@ import React from "react";
 
 export default function Explicacion() {
   return (
-      <div className="min-h-screen ml-8 mr-8 bg-white border border-black rounded-md p-2 shadow-2xl">
-        <h1 className="text-lg font-bold">The standard Lorem Ipsum passage, used since the 1500s</h1>
-        <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."
-        </p>
-        <h2 className="text-lg font-bold">
-          Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero
-          in 45 BC
-        </h2>
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-        quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-        corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-        voluptas nulla pariatur?"
-        <h2 className="text-lg font-bold">1914 translation by H. Rackham</h2>
-        "But I must explain to you how all this mistaken idea of denouncing
-        pleasure and praising pain was born and I will give you a complete
-        account of the system, and expound the actual teachings of the great
-        explorer of the truth, the master-builder of human happiness. No one
-        rejects, dislikes, or avoids pleasure itself, because it is pleasure,
-        but because those who do not know how to pursue pleasure rationally
-        encounter consequences that are extremely painful. Nor again is there
-        anyone who loves or pursues or desires to obtain pain of itself, because
-        it is pain, but because occasionally circumstances occur in which toil
-        and pain can procure him some great pleasure. To take a trivial example,
-        which of us ever undertakes laborious physical exercise, except to
-        obtain some advantage from it? But who has any right to find fault with
-        a man who chooses to enjoy a pleasure that has no annoying consequences,
-        or one who avoids a pain that produces no resultant pleasure?"
-        <h2 className="text-lg font-bold">
-          Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero
-          in 45 BC
-        </h2>
-        <p>
-          "At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          cumque nihil impedit quo minus id quod maxime placeat facere possimus,
-          omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
-          autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-          eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-          voluptatibus maiores alias consequatur aut perferendis doloribus
-          asperiores repellat."
-        </p>
-        <h2 className="text-lg font-bold">1914 translation by H. Rackham</h2>
-        <p>
-          "On the other hand, we denounce with righteous indignation and dislike
-          men who are so beguiled and demoralized by the charms of pleasure of
-          the moment, so blinded by desire, that they cannot foresee the pain
-          and trouble that are bound to ensue; and equal blame belongs to those
-          who fail in their duty through weakness of will, which is the same as
-          saying through shrinking from toil and pain. These cases are perfectly
-          simple and easy to distinguish. In a free hour, when our power of
-          choice is untrammelled and when nothing prevents our being able to do
-          what we like best, every pleasure is to be welcomed and every pain
-          avoided. But in certain circumstances and owing to the claims of duty
-          or the obligations of business it will frequently occur that pleasures
-          have to be repudiated and annoyances accepted. The wise man therefore
-          always holds in these matters to this principle of selection: he
-          rejects pleasures to secure other greater pleasures, or else he
-          endures pains to avoid worse pains."
-        </p>
-      </div>
+    <div className="w-3/4 min-h-screen space-y-5 bg-white border border-black rounded-md p-2 shadow-2xl pl-6 pr-6">
+      <h1 className="text-lg font-bold mt-8">Para empezar a conocernos</h1>
+      <p>
+        Somos una pequeña empresa creada recientemente, en el centro de un
+        hermoso país llamado España , más concretamente en su capital Madrid,
+        y somos tres jovenes desarrolladores que han decidido montar su propia
+        empresa, dedicada a la instalacion de sistemas domóticos en los hogares
+        de nuestros clientes.
+      </p>
+      <h2 className="text-lg font-bold">Historia</h2>
+      <p>
+        La idea en la que se basa nuestra empresa surge en nuestra etapa de
+        estudieantes, gracias al consejo de un profesor de nuestro centro de
+        estudio, pudimos empezar a desarrollar noestra idea de negocio a traves
+        del proyecto final de grado, nos encontramos con muchas dificultades
+        pero al final conseguimos alcanzar nuestro objetivo de poder ofrecer a
+        nuestros clientes un servicio de calidad y que cumple con nuestras
+        propias expectativas.
+      </p>
+      <h2 className="text-lg font-bold">
+        Este proyecto no seria posible sin..
+      </h2>
+      <p>
+        Somos tres desarrolladores con un sueño, nuestros nombres son Jose Luis,
+        Victor y Enrique Maya Fernández, los tres somos de Parla, una provincia
+        al sur de Madrid.
+      </p>
+      <h2 className="text-lg font-bold">
+        Nuestra misión,visión y valores son...
+      </h2>
+      <p>
+        Creemos que la confianza es la parte mas importante de una relacion y
+        queremos sentirnos orgullosos de poder decir que nuestro objetivo con
+        nuestros clientes es que puedan confiar en nosotros y en nuestros
+        servicios de domotica, que esten tranquilos y puedan revisar y controlar
+        desde cualquier lugar del mundo la temperatura de su hogar y
+        poder activar la calefccion para que en un frio día de invierno cuando
+        lleguen a casa, sean recibidos con una calida bienvenida gracias a que su
+        calefaccion fue activada gracias a nuestros sistema , ofreciendo un
+        servicio fiable y al alcanze de todos.
+      </p>
+      <h2 className="text-lg font-bold">Que podemos ofrecer...</h2>
+      <p className="pb-8">
+        Nuestra empresa ofrece instalaciones de infinidad de tipos, tantos como
+        nuestros clientes deseen, solo necesitan pensar en que neceistan y nosotros
+        aremos todo lo posible por que nuestro sistema instalado cumpla con todo lo
+        necesario y cumpla con las expectativas puestas en nosotros como profecionales,
+        aunque llevamos poco en el sector y seamos un empresa pequeña, nos esforzaremos
+        al maximo y ofreceremos un servicio de calidad, al alcance de todos los bolsillos
+        ya que tenemos presupuestos de todos los tipos, y si usted no esta seguro de lo
+        necesita no se preocupe, nosotros nos encargamos y le realizaremos un sesión
+        de consulta totalmente gratis, usted solamente nos tiene que decir cuales son 
+        sus necesidades y nosotros le ofreceromos la solución a sus problemas.
+      </p>
+    </div>
   );
 }

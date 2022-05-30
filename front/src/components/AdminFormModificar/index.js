@@ -53,7 +53,6 @@ export default function FormRegister() {
       }}
       onSubmit={(values, { resetForm }) => {
         resetForm();
-        console.log(values);
         putUsuarios(values, usuario._id);
         navigate("/admin");
       }}

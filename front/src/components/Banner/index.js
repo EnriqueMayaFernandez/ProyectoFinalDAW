@@ -1,15 +1,16 @@
 import React from "react";
-import logo from "../../images/logo.png";
 import "./index.css";
+import logo from "../../images/logo.png"
 
 export default function Explicacion() {
   return (
     <>
       <div className="min-h-screen w-full flex flex-col items-center text-center imagenFondo bg-cover">
-        <div className="w-full flex flex-col items-center bg-space-cadet p-2 text-white">
-          Titulo del banner<span>/Nombre de la empresa</span>
-          <img src={logo} alt=""></img>
+        <div className="w-full h-1/5 flex flex-col items-center bg-space-cadet p-2 text-white text-4xl">
+          Somos/TermoUP
+          <img src={logo} alt="" className="h-32 rounded-lg mt-4 mb-4"></img>
         </div>
+        
       </div>
     </>
   );

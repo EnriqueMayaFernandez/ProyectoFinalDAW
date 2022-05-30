@@ -13,7 +13,7 @@ function classNames(...classes) {
 }
 
 export default function ListaUsuarios() {
-  const [usuarios, setUsuarios] = useState();
+  const [usuarios, setUsuarios] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,6 +38,8 @@ export default function ListaUsuarios() {
     setUsuarios(usuariosNuevos);
     deleteUsuario(id);
   };
+
+  
 
   return (
     <div className="border w-3/4 min-h-screen">
@@ -80,8 +82,10 @@ export default function ListaUsuarios() {
                         <Link
                           to="/login"
                           className={classNames(
-                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
+                            active
+                              ? "bg-gray-100 text-gray-900"
+                              : "text-gray-700",
+                            "block px-4 py-2 text-sm"
                           )}
                         >
                           Salir

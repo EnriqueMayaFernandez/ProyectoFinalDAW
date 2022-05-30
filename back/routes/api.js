@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { check, validationResult } = require("express-validator");
+const bcryptjs = require("bcryptjs");
 
 const Usuario = require("../models/usuario");
 
@@ -53,14 +54,21 @@ router.post(
         nombreUsuario: req.body.nombreUsuario,
       });
       if (usuarioExiste == null) {
-        const nuevoUsuario = await Usuario.create(req.body);
+        let claveHash = await bcryptjs.hash(req.body.clave, 8);
+        const usuario = {
+          nombreUsuario: req.body.nombreUsuario,
+          clave: claveHash,
+          tipo: req.body.tipo,
+          correo: req.body.correo,
+        };
+        const nuevoUsuario = await Usuario.create(usuario);
         res.json(nuevoUsuario);
-      }else{
+      } else {
         //el nombre de usuario ya existe
         throw 400;
       }
     } catch (err) {
-      res.status(503).json({ error: err });
+      res.status(err).json({err});
     }
   }
 );
@@ -71,15 +79,15 @@ router.put("/api/usuarios/:usuarioId", async (req, res) => {
       nombreUsuario: req.body.nombreUsuario,
     });
     if (usuarioExiste == null) {
-    const usuarioActualizado = await Usuario.findByIdAndUpdate(
-      req.params.usuarioId,
-      req.body,
-      { new: true }
-    );
-    res.json(usuarioActualizado);
-    }else{
+      const usuarioActualizado = await Usuario.findByIdAndUpdate(
+        req.params.usuarioId,
+        req.body,
+        { new: true }
+      );
+      res.json(usuarioActualizado);
+    } else {
       //el nombre de usuario ya existe
-      throw 400; 
+      throw 400;
     }
   } catch (err) {
     res.status(503).json({ error: err });
@@ -102,17 +110,25 @@ router.get("/api/login/:nombreUser&:claveUser", async (req, res) => {
   try {
     const usuario = await Usuario.findOne({
       nombreUsuario: req.params.nombreUser,
-      clave: req.params.claveUser,
     });
-    if(usuario!==null){
-      res.json(usuario);
-    }else{
-      //el usuario o la contraseña son incorrectos
-      throw 400 
+    let compare = bcryptjs.compareSync(req.params.claveUser, usuario.clave);
+    if (!compare) {
+      usuario = null;
     }
-    
+    if (usuario !== null) {
+      res.json(usuario);
+    } else {
+      //el usuario o la contraseña son incorrectos
+      throw 400;
+    }
   } catch (err) {
-    res.status(503).json({ error: err });
+    if (err instanceof BadRequest) {
+      res
+        .status(400)
+        .json({ error: "El usuario o la contraseña son incorrectos" });
+    } else {
+      res.status(503).json({ error: "Ha ocurrido un error inexperado" });
+    }
   }
 });
 

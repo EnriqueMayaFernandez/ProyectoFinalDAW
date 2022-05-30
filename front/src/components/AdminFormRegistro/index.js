@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PostUsuarios from "../../services/postUsuarios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -77,7 +77,7 @@ export default function FormRegister() {
             <ErrorMessage
               name="nombreUsuario"
               component={() => (
-                <div className="text-red-600">{errors.nombreUsuario}</div>
+                <div className="text-red">{errors.nombreUsuario}</div>
               )}
             />
             <div className="w-full flex flex-row">
@@ -97,9 +97,7 @@ export default function FormRegister() {
             </div>
             <ErrorMessage
               name="clave"
-              component={() => (
-                <div className="text-red-600">{errors.clave}</div>
-              )}
+              component={() => <div className="text-red">{errors.clave}</div>}
             />
             <div className="w-full flex flex-row">
               <label
@@ -119,7 +117,7 @@ export default function FormRegister() {
             <ErrorMessage
               name="claveRepetida"
               component={() => (
-                <div className="text-red-600">{errors.claveRepetida}</div>
+                <div className="text-red">{errors.claveRepetida}</div>
               )}
             />
             <div className="w-full flex flex-row">
@@ -139,9 +137,7 @@ export default function FormRegister() {
             </div>
             <ErrorMessage
               name="correo"
-              component={() => (
-                <div className="text-red-600">{errors.correo}</div>
-              )}
+              component={() => <div className="text-red">{errors.correo}</div>}
             />
 
             <div className="w-full flex flex-row">

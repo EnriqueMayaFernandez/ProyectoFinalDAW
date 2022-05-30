@@ -11,6 +11,7 @@ export default function FormLogin() {
     let  usuario  = await getUsuario(values.nombreUsuario, values.clave);
     console.log(usuario.tipo)
       if (usuario.tipo == "0") {
+        window.localStorage.setItem("usuarioLogin", JSON.stringify(usuario));
         navigate("/admin");
       } else if(usuario.tipo == "1") {
         alert("Nos vamos a nodered");

@@ -1,16 +1,17 @@
 const respuesta = (apiResponse) => {
-    return apiResponse;
-  };
-
-
+  return apiResponse;
+};
 
 export default function deleteUsuarios(id) {
   const requestOptions = {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      //Authorization: "Bearer " + auth,
+    },
     body: JSON.stringify(),
   };
-  fetch("http://localhost:3333/api/usuarios/"+id, requestOptions)
+  fetch("http://localhost:3333/api/usuarios/" + id, requestOptions)
     .then((response) => response.json())
     .then(respuesta);
 }
