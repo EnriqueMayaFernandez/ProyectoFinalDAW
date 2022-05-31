@@ -54,7 +54,10 @@ export default function FormRegister() {
       onSubmit={(values, { resetForm }) => {
         resetForm();
         putUsuarios(values, usuario._id);
-        navigate("/admin");
+        let navegar = JSON.parse(window.localStorage.getItem("navegar"));
+        if( navegar === 1 ){
+          navigate("/admin");
+        }
       }}
     >
       {({ errors }) => (
@@ -78,7 +81,7 @@ export default function FormRegister() {
             <ErrorMessage
               name="nombreUsuario"
               component={() => (
-                <div className="text-red-600">{errors.nombreUsuario}</div>
+                <div className="text-red">{errors.nombreUsuario}</div>
               )}
             />
             <div className="w-full flex flex-row">
@@ -99,7 +102,7 @@ export default function FormRegister() {
             <ErrorMessage
               name="clave"
               component={() => (
-                <div className="text-red-600">{errors.clave}</div>
+                <div className="text-red">{errors.clave}</div>
               )}
             />
             <div className="w-full flex flex-row">
@@ -120,7 +123,7 @@ export default function FormRegister() {
             <ErrorMessage
               name="claveRepetida"
               component={() => (
-                <div className="text-red-600">{errors.claveRepetida}</div>
+                <div className="text-red">{errors.claveRepetida}</div>
               )}
             />
             <div className="w-full flex flex-row">
@@ -141,7 +144,7 @@ export default function FormRegister() {
             <ErrorMessage
               name="correo"
               component={() => (
-                <div className="text-red-600">{errors.correo}</div>
+                <div className="text-red">{errors.correo}</div>
               )}
             />
 

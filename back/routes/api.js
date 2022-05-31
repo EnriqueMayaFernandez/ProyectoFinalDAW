@@ -7,7 +7,6 @@ const Usuario = require("../models/usuario");
 //registro usuarios
 
 router.get("/api/usuarios", async (req, res) => {
-  console.log(req.payload);
   try {
     const usuarios = await Usuario.find().sort({ nombreUsuario: 1 });
     res.json(usuarios);
@@ -68,21 +67,45 @@ router.post(
         throw 400;
       }
     } catch (err) {
-      res.status(err).json({err});
+      res.status(err).json({ err });
     }
   }
 );
 
 router.put("/api/usuarios/:usuarioId", async (req, res) => {
   try {
-    const usuarioExiste = await Usuario.findOne({
+    let usuario=null;
+    const listaUsuariosMismoNombre = await Usuario.find({
       nombreUsuario: req.body.nombreUsuario,
     });
-    if (usuarioExiste == null) {
+    if (
+      (listaUsuariosMismoNombre.length == 1 &&
+        listaUsuariosMismoNombre[0]._id == req.params.usuarioId) ||
+      listaUsuariosMismoNombre.length == 0
+    ) {
+      console.log(listaUsuariosMismoNombre[0].clave)
+      console.log(req.body.clave)
+      if (req.body.clave == listaUsuariosMismoNombre[0].clave) {
+         usuario = {
+          nombreUsuario: req.body.nombreUsuario,
+          clave: listaUsuariosMismoNombre[0].clave,
+          tipo: req.body.tipo,
+          correo: req.body.correo,
+        };
+        console.log("contraseñas iguales")
+      } else {
+        let claveHash = await bcryptjs.hash(req.body.clave, 8);
+        usuario = {
+          nombreUsuario: req.body.nombreUsuario,
+          clave: claveHash,
+          tipo: req.body.tipo,
+          correo: req.body.correo,
+        };
+        console.log("contraseñas diferentes")
+      }
       const usuarioActualizado = await Usuario.findByIdAndUpdate(
         req.params.usuarioId,
-        req.body,
-        { new: true }
+        usuario
       );
       res.json(usuarioActualizado);
     } else {
@@ -90,7 +113,7 @@ router.put("/api/usuarios/:usuarioId", async (req, res) => {
       throw 400;
     }
   } catch (err) {
-    res.status(503).json({ error: err });
+    res.status(err).json({ err });
   }
 });
 
@@ -111,24 +134,18 @@ router.get("/api/login/:nombreUser&:claveUser", async (req, res) => {
     const usuario = await Usuario.findOne({
       nombreUsuario: req.params.nombreUser,
     });
-    let compare = bcryptjs.compareSync(req.params.claveUser, usuario.clave);
-    if (!compare) {
-      usuario = null;
-    }
     if (usuario !== null) {
-      res.json(usuario);
+      if (bcryptjs.compareSync(req.params.claveUser, usuario.clave)) {
+        res.json(usuario);
+      } else {
+        throw 400;
+      }
     } else {
       //el usuario o la contraseña son incorrectos
       throw 400;
     }
   } catch (err) {
-    if (err instanceof BadRequest) {
-      res
-        .status(400)
-        .json({ error: "El usuario o la contraseña son incorrectos" });
-    } else {
-      res.status(503).json({ error: "Ha ocurrido un error inexperado" });
-    }
+    res.status(err).json({ err });
   }
 });
 

@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import getUsuario from "../../services/getUsuario";
 
 export default function FormLogin() {
   const navigate = useNavigate();
-  const [usuario,setUsuario]=useState(null);
 
   async function recibirUsuario(values) {
-    let  usuario  = await getUsuario(values.nombreUsuario, values.clave);
-    console.log(usuario.tipo)
-      if (usuario.tipo == "0") {
-        window.localStorage.setItem("usuarioLogin", JSON.stringify(usuario));
-        navigate("/admin");
-      } else if(usuario.tipo == "1") {
-        alert("Nos vamos a nodered");
-        //navigate("/nodered");
-      }else{
-        alert("El nombre de usuario o contraseña son incorrectos")
-      }
+    let usuario = await getUsuario(values.nombreUsuario, values.clave);
+    if (usuario.tipo === 0) {
+      navigate("/admin");
+      console.log("soy un admin")
+    } else if (usuario.tipo === 1) {
+      console.log("soy un normal")
+      alert("Nos vamos a nodered");
+      //navigate("/nodered");
+    } else {
+      console.log("fallo")
+      alert("El nombre de usuario o contraseña son incorrectos");
+    }
   }
 
   const volver = () => {
@@ -48,7 +48,7 @@ export default function FormLogin() {
         return errores;
       }}
       onSubmit={(values, { resetForm }) => {
-        recibirUsuario(values)
+        recibirUsuario(values);
         resetForm();
       }}
     >
@@ -94,9 +94,7 @@ export default function FormLogin() {
             </div>
             <ErrorMessage
               name="clave"
-              component={() => (
-                <div className="text-red">{errors.clave}</div>
-              )}
+              component={() => <div className="text-red">{errors.clave}</div>}
             />
             <div className="w-full flex flex-row">
               <button

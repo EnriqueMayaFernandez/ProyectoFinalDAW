@@ -53,7 +53,10 @@ export default function FormRegister() {
       onSubmit={(values, { resetForm }) => {
         resetForm();
         PostUsuarios(values);
-        navigate("/admin");
+        let navegar = JSON.parse(window.localStorage.getItem("navegar"));
+        if( navegar === 1 ){
+          navigate("/admin");
+        }
       }}
     >
       {({ errors }) => (

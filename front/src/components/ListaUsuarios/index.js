@@ -28,6 +28,10 @@ export default function ListaUsuarios() {
     //crear objeto usuarioModificar
   };
 
+  const logout = () => {
+    window.localStorage.removeItem("usuarioLogin")
+  }
+
   const borrar = (id) => {
     const usuariosNuevos = [];
     usuarios.forEach((usuario) => {
@@ -81,6 +85,7 @@ export default function ListaUsuarios() {
                       {({ active }) => (
                         <Link
                           to="/login"
+                          onClick={logout}
                           className={classNames(
                             active
                               ? "bg-gray-100 text-gray-900"
@@ -111,7 +116,7 @@ export default function ListaUsuarios() {
       <div className="min-h-screen space-y-6 bg-alice-blue divide-y-2 pr-3 pl-3">
         {usuarios &&
           usuarios.map((usuario) =>
-            usuario.nombreUsuario !== "SuperAdmin" ? (
+            usuario.nombreUsuario !== "SuperAdmin" && usuario.nombreUsuario!==JSON.parse(window.localStorage.getItem("usuarioLogin")).nombreUsuario ? (
               <Usuario
                 key={usuario._id}
                 id={usuario._id}

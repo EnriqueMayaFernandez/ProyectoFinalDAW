@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import StickyFooter from "../../components/StickyFooter/index";
 import Multimedia from "../../components/Multimedia/index";
 import Explicacion from "../../components/Explicacion/index";
@@ -7,6 +7,9 @@ import Imagenes from "../../components/Imagenes/index";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+  useEffect(() => {
+    localStorage.removeItem("usuarioLogin");
+  }, []);
   return (
     <>
       <div className="bg-shadow-blue flex flex-col items-center space-y-24">
