@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.css";
-import logo from "../../images/logo.png"
 import imagen from "../../images/imagenBanner.png"
 
 export default function Explicacion() {
