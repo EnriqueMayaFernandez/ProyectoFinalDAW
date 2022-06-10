@@ -14,6 +14,9 @@ function classNames(...classes) {
 
 export default function ListaUsuarios() {
   const [usuarios, setUsuarios] = useState("");
+  const [usuario, setUsuario] = useState(
+    JSON.parse(window.localStorage.getItem("usuarioLogin"))
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,7 +65,7 @@ export default function ListaUsuarios() {
             <Menu as="div" className=" relative inline-block text-left">
               <div>
                 <Menu.Button className="inline-flex justify-center w-full rounded-md border bg-paradise-pink shadow-sm px-4 py-2 bg-white text-sm font-medium">
-                  Hola Admin
+                  Hola Admin {usuario && usuario.nombreUsuario}
                   <ChevronDownIcon
                     className="-mr-1 ml-2 h-5 w-5"
                     aria-hidden="true"

@@ -43,6 +43,8 @@ export default function FormRegister() {
 
         if (!values.correo) {
           errores.correo = "Por favor ingrese un correo";
+        }else if(!/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(values.correo)){
+          errores.correo = "El correo no tiene un formato adecuado";
         }
 
         return errores;
@@ -125,7 +127,7 @@ export default function FormRegister() {
                 Correo
               </label>
               <Field
-                type="text"
+                type="email"
                 id="correo"
                 name="correo"
                 placeholder=""
@@ -136,6 +138,10 @@ export default function FormRegister() {
               name="correo"
               component={() => <div className="text-red">{errors.correo}</div>}
             />
+            <div className="w-full flex flex-row">
+              
+              <label><input type="checkbox" name="privacidad" value="" required/> He leido y acepto las <a href="http://localhost:3000/privacidad" className="text-blue">políticas de privacidad</a></label>
+            </div>
 
             <div>
               <button

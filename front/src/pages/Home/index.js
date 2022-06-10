@@ -14,15 +14,15 @@ export default function Home() {
     <>
       <div className="bg-shadow-blue flex flex-col items-center space-y-24">
         <Banner></Banner>
+        <Link
+          className="text-5xl text-white bg-paradise-pink rounded-xl hover:bg-blush active:bg-blush focus:outline-none p-3"
+          to="/login"
+        >
+          Para logearte/registrarte pincha aqui
+        </Link>
         <Imagenes></Imagenes>
         <Explicacion></Explicacion>
         <Multimedia></Multimedia>
-        <Link
-          className="text-6xl text-white bg-paradise-pink rounded-xl hover:bg-blush active:bg-blush focus:outline-none p-3"
-          to="/login"
-        >
-          Para logearte pincha aqui
-        </Link>
         <StickyFooter></StickyFooter>
       </div>
     </>

@@ -7,7 +7,7 @@ export default function Admin() {
 
   const existeUsuario = () => {
     let usuario = JSON.parse(window.localStorage.getItem("usuarioLogin"));
-    if (usuario == null) {
+    if (usuario == null || usuario.tipo===1) {
       navigate("/login");
     }
   };

@@ -10,13 +10,9 @@ export default function FormLogin() {
     let usuario = await getUsuario(values.nombreUsuario, values.clave);
     if (usuario.tipo === 0) {
       navigate("/admin");
-      console.log("soy un admin")
     } else if (usuario.tipo === 1) {
-      console.log("soy un normal")
-      alert("Nos vamos a nodered");
-      //navigate("/nodered");
+      navigate("/NodeRed")
     } else {
-      console.log("fallo")
       alert("El nombre de usuario o contraseña son incorrectos");
     }
   }

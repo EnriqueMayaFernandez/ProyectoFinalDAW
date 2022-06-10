@@ -13,7 +13,6 @@ export default function FormRegister() {
     navigate("/admin");
   };
 
-  console.log(usuario);
   return (
     <Formik
       initialValues={{
@@ -47,6 +46,8 @@ export default function FormRegister() {
 
         if (!values.correo) {
           errores.correo = "Por favor ingrese un correo";
+        } else if(!/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(values.correo)){
+          errores.correo = "El correo no tiene un formato adecuado";
         }
 
         return errores;

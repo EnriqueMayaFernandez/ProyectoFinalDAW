@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Explicacion() {
   return (
-    <div className="w-3/4 min-h-screen space-y-5 bg-white border border-black rounded-md p-2 shadow-2xl pl-6 pr-6">
+    <div className="w-3/4 space-y-5 bg-white border border-black rounded-md p-2 shadow-2xl pl-6 pr-6">
       <h1 className="text-lg font-bold mt-8">Para empezar a conocernos</h1>
       <p>
         Somos una pequeña empresa creada recientemente, en el centro de un
@@ -25,8 +25,8 @@ export default function Explicacion() {
         Este proyecto no seria posible sin..
       </h2>
       <p>
-        Somos tres desarrolladores con un sueño, nuestros nombres son Jose Luis,
-        Victor y Enrique Maya Fernández, los tres somos de Parla, una provincia
+        Somos tres desarrolladores con un sueño, nuestros nombres son Jose Luis Fernández,
+        Victor Álvarez y Enrique Maya Fernández, los tres somos de Parla, una provincia
         al sur de Madrid.
       </p>
       <h2 className="text-lg font-bold">
