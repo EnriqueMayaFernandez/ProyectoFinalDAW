@@ -1,0 +1,533 @@
+[
+    {
+        "id": "770de43721a6f16b",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "24a46e31783a2b84",
+        "type": "mqtt in",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "topic": "mimqtt/test",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "25498336c0f90b71",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "5488a4b3f2715826",
+                "fbd691d32e797c69",
+                "1dc227df88d9577d",
+                "2b8609d48778ce19",
+                "a0c07ee0a815410d"
+            ]
+        ]
+    },
+    {
+        "id": "5488a4b3f2715826",
+        "type": "debug",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4b5dc454731b4a4a",
+        "type": "mqtt out",
+        "z": "770de43721a6f16b",
+        "name": "Interruptor",
+        "topic": "mqtt/interruptor",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "773f72c5473e3574",
+        "x": 710,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d17903218e3a5d8b",
+        "type": "comment",
+        "z": "770de43721a6f16b",
+        "name": "Interruptor de calefacción",
+        "info": "",
+        "x": 370,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1dc227df88d9577d",
+        "type": "switch",
+        "z": "770de43721a6f16b",
+        "name": "Regulador",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "25",
+                "vt": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "25",
+                "vt": "num",
+                "v2": "30",
+                "v2t": "num"
+            },
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 230,
+        "y": 340,
+        "wires": [
+            [
+                "ca9c0b7e36e6fa28"
+            ],
+            [
+                "cf30860731f3d0e8"
+            ],
+            [
+                "29b42c2321a09009"
+            ]
+        ]
+    },
+    {
+        "id": "ca9c0b7e36e6fa28",
+        "type": "change",
+        "z": "770de43721a6f16b",
+        "name": "Frio",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Frio",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "cd0d195f90ab6b9d"
+            ]
+        ]
+    },
+    {
+        "id": "cf30860731f3d0e8",
+        "type": "change",
+        "z": "770de43721a6f16b",
+        "name": "Bien",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Bueno",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 360,
+        "wires": [
+            [
+                "cd0d195f90ab6b9d"
+            ]
+        ]
+    },
+    {
+        "id": "29b42c2321a09009",
+        "type": "change",
+        "z": "770de43721a6f16b",
+        "name": "Calor",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Calor",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "cd0d195f90ab6b9d"
+            ]
+        ]
+    },
+    {
+        "id": "cd0d195f90ab6b9d",
+        "type": "rbe",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 650,
+        "y": 360,
+        "wires": [
+            [
+                "0c645a6359d5bff2",
+                "12d439cf1fcd4652"
+            ]
+        ]
+    },
+    {
+        "id": "12d439cf1fcd4652",
+        "type": "debug",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a0c07ee0a815410d",
+        "type": "mqtt out",
+        "z": "770de43721a6f16b",
+        "name": "temperatura",
+        "topic": "mqtt/tempes",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "773f72c5473e3574",
+        "x": 510,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d93661072b0b1440",
+        "type": "inject",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 150,
+        "y": 680,
+        "wires": [
+            [
+                "c352c13d4704e744"
+            ]
+        ]
+    },
+    {
+        "id": "c352c13d4704e744",
+        "type": "ui_switch",
+        "z": "770de43721a6f16b",
+        "name": "Interruptor",
+        "label": "Activar climatización",
+        "tooltip": "",
+        "group": "59d5a61913ccaaf6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "mimqtt/sub",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "4b5dc454731b4a4a"
+            ]
+        ]
+    },
+    {
+        "id": "0c645a6359d5bff2",
+        "type": "ui_text",
+        "z": "770de43721a6f16b",
+        "group": "59d5a61913ccaaf6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Qué tiempo hace",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 890,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "fbd691d32e797c69",
+        "type": "ui_gauge",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "group": "59d5a61913ccaaf6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "35",
+        "colors": [
+            "#729fcf",
+            "#8ae234",
+            "#ca3838"
+        ],
+        "seg1": "24",
+        "seg2": "28",
+        "className": "",
+        "x": 490,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2b8609d48778ce19",
+        "type": "ui_chart",
+        "z": "770de43721a6f16b",
+        "name": "Histórico",
+        "group": "59d5a61913ccaaf6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Histórico de temperaturas",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "100",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 600,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc0d21270fea8048",
+        "type": "inject",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 150,
+        "y": 760,
+        "wires": [
+            [
+                "c352c13d4704e744"
+            ]
+        ]
+    },
+    {
+        "id": "33a6b6a5b89d89da",
+        "type": "inject",
+        "z": "770de43721a6f16b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 820,
+        "wires": [
+            [
+                "c352c13d4704e744"
+            ]
+        ]
+    },
+    {
+        "id": "25498336c0f90b71",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.166",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "773f72c5473e3574",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.166",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "59d5a61913ccaaf6",
+        "type": "ui_group",
+        "name": "El medidor de temperatura",
+        "tab": "e2125ac60b122529",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e2125ac60b122529",
+        "type": "ui_tab",
+        "name": "Temperatura",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
