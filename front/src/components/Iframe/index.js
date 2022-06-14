@@ -18,7 +18,7 @@ export default function Iframe() {
   };
 
   return (
-    <div className="min-h-screen border w-3/4">
+    <div className="border w-3/4 mt-12 mb-12">
       <header className="sticky top-0 z-50 rounded-sm">
         <div className="bg-space-cadet p-4 grid grid-cols-5 rounded-sm">
           <div></div>
@@ -72,7 +72,7 @@ export default function Iframe() {
         </div>
       </header>
       <div className="grid grid-rows">
-        <div className="m-auto border-2 border-space-cadet rounded-md bg-space-cadet p-1 mt-6">
+        <div className="m-auto border-2 border-space-cadet rounded-md bg-space-cadet p-1 mt-6 mb-6">
           <iframe
             src="http://192.168.103.1:1880/ui"
             height="680"

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import FormLogin from "../../components/FormLogin/index";
+import StickyFooter from "../../components/StickyFooter/index";
+import Banner from "../../components/Banner/index";
 
 export default function Login() {
   useEffect(() => {
@@ -7,8 +9,10 @@ export default function Login() {
   }, []);
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center bg-shadow-blue">
+      <div className="flex flex-col items-center bg-shadow-blue">
+        <Banner></Banner>
         <FormLogin></FormLogin>
+        <StickyFooter></StickyFooter>
       </div>
     </>
   );

@@ -11,7 +11,7 @@ export default function FormLogin() {
     if (usuario.tipo === 0) {
       navigate("/admin");
     } else if (usuario.tipo === 1) {
-      navigate("/NodeRed")
+      navigate("/NodeRed");
     } else {
       alert("El nombre de usuario o contraseña son incorrectos");
     }
@@ -49,20 +49,21 @@ export default function FormLogin() {
       }}
     >
       {({ errors }) => (
-        <div className="w-2/5 bg-white p-12 rounded-lg border-black border-2 mt-24">
+        <div className="w-2/5 bg-white p-12 rounded-lg border-black border-2 mt-24 mb-24">
+          <div className="text-2xl mb-7">Iniciar sesión</div>
           <Form className="space-y-2.5 flex flex-col items-center">
             <div className="w-full flex flex-row">
               <label
                 htmlFor="nombreUsuario"
                 className="text-center bg-blush w-1/4 rounded-l-lg p-1 shadow-md"
               >
-                Nombre Usuario
+                Nombre usuario
               </label>
               <Field
                 type="text"
                 id="nombreUsuario"
                 name="nombreUsuario"
-                placeholder="Manolito14"
+                placeholder=""
                 className="bg-alice-blue w-3/4 rounded-r-lg border-black p-1 shadow-md"
               />
             </div>
@@ -110,7 +111,10 @@ export default function FormLogin() {
               </button>
             </div>
             <div className="w-full flex flex-row">
-              <Link to="/registro" className="m-auto">
+              <Link
+                to="/registro"
+                className="text-center bg-blue w-full rounded p-1 shadow-md"
+              >
                 Registrarse
               </Link>
             </div>

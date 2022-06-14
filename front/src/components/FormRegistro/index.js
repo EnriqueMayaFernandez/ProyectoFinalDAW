@@ -56,7 +56,8 @@ export default function FormRegister() {
       }}
     >
       {({ errors }) => (
-        <div className="w-3/6 bg-white p-12 rounded-lg border-black border-2 mt-24">
+        <div className="w-3/6 bg-white p-12 rounded-lg border-black border-2 mt-24 mb-24">
+          <div className="text-2xl mb-7">Registrarse</div>
           <Form className="formulario space-y-2.5 flex flex-col">
             <div className="w-full flex flex-row">
               <label
@@ -69,7 +70,7 @@ export default function FormRegister() {
                 type="text"
                 id="nombreUsuario"
                 name="nombreUsuario"
-                placeholder="Manolito14"
+                placeholder=""
                 className="bg-alice-blue w-3/4 rounded-r-lg border-black p-1 shadow-md"
               />
             </div>

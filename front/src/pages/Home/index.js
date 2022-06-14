@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import StickyFooter from "../../components/StickyFooter/index";
 import Multimedia from "../../components/Multimedia/index";
 import Explicacion from "../../components/Explicacion/index";
@@ -18,10 +18,10 @@ export default function Home() {
           className="text-5xl text-white bg-paradise-pink rounded-xl hover:bg-blush active:bg-blush focus:outline-none p-3"
           to="/login"
         >
-          Para logearte/registrarte pincha aqui
+          Para logearte/registrarte pincha aquí
         </Link>
-        <Imagenes></Imagenes>
         <Explicacion></Explicacion>
+        <Imagenes></Imagenes>
         <Multimedia></Multimedia>
         <StickyFooter></StickyFooter>
       </div>

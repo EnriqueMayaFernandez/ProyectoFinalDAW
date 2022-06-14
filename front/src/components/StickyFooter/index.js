@@ -16,7 +16,7 @@ export default function Footer() {
         <span>
           <img src={iconoCorreo} alt="" className="w-9 bg-white rounded-md" />
         </span>
-        <span className="ml-3">ejemploCorreo@gmail.com</span>
+        <span className="ml-3"><a href="mailto:fernandez_sanchez.jose@tiernoparla.es?Subject=Información">fernandez_sanchez.jose@tiernoparla.es</a></span>
       </div>
       <div className="flex align-middle m-auto">
         <span>

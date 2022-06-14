@@ -2,59 +2,56 @@ import React from "react";
 
 export default function Explicacion() {
   return (
-    <div className="w-3/4 space-y-5 bg-white border border-black rounded-md p-2 shadow-2xl pl-6 pr-6">
-      <h1 className="text-lg font-bold mt-8">Para empezar a conocernos</h1>
-      <p>
-        Somos una pequeña empresa creada recientemente, en el centro de un
-        hermoso país llamado España , más concretamente en su capital Madrid,
-        y somos tres jovenes desarrolladores que han decidido montar su propia
-        empresa, dedicada a la instalacion de sistemas domóticos en los hogares
-        de nuestros clientes.
+    <div className="w-3/4 bg-white border border-black rounded-md p-2 shadow-2xl pl-6 pr-6">
+      <p className="mt-6">
+        ¿Estás harto de tener llegar a tu casa y encontrártela helada como
+        Invernalia o con un calor insoportable sahariano? ¿No sería increíble
+        que la temperatura se controle sola o poder controlarla desde cualquier
+        lugar? Tenemos la solución para ti.
       </p>
-      <h2 className="text-lg font-bold">Historia</h2>
+      <h2 className="text-lg font-bold mt-9">Nuestra app</h2>
       <p>
-        La idea en la que se basa nuestra empresa surge en nuestra etapa de
-        estudieantes, gracias al consejo de un profesor de nuestro centro de
-        estudio, pudimos empezar a desarrollar noestra idea de negocio a traves
-        del proyecto final de grado, nos encontramos con muchas dificultades
-        pero al final conseguimos alcanzar nuestro objetivo de poder ofrecer a
-        nuestros clientes un servicio de calidad y que cumple con nuestras
-        propias expectativas.
+        TermoApp es una aplicación web que permite el control total de la
+        temperatura de tu casa mediante un hardware de bajo coste, desde
+        cualquier dispositivo con acceso a internet en cualquier parte del
+        mundo.
       </p>
-      <h2 className="text-lg font-bold">
-        Este proyecto no seria posible sin..
+      <h2 className="text-lg font-bold mt-9">Quiénes somos</h2>
+      <p>
+        Somos una startup creada recientemente en Madrid, España. Somos tres
+        jóvenes desarrolladores que han decidido montar su propia empresa
+        dedicada a la instalación de sistemas domóticos domésticos.
+      </p>
+      <h2 className="text-lg font-bold mt-9">Historia</h2>
+      <p>
+        Nuestra empresa nace durante nuestra etapa de estudiantes, gracias a la
+        idea de un profesor de nuestro centro de estudios. Pudimos empezar a
+        desarrollar nuestra idea de negocio a través del proyecto final de
+        grado.
+      </p>
+      <h2 className="text-lg font-bold mt-9">
+        Nuestra misión, visión y nuestros valores
       </h2>
       <p>
-        Somos tres desarrolladores con un sueño, nuestros nombres son Jose Luis Fernández,
-        Victor Álvarez y Enrique Maya Fernández, los tres somos de Parla, una provincia
-        al sur de Madrid.
-      </p>
-      <h2 className="text-lg font-bold">
-        Nuestra misión,visión y valores son...
-      </h2>
-      <p>
-        Creemos que la confianza es la parte mas importante de una relacion y
+        Creemos que la confianza es la parte más importante de una relación y
         queremos sentirnos orgullosos de poder decir que nuestro objetivo con
         nuestros clientes es que puedan confiar en nosotros y en nuestros
-        servicios de domotica, que esten tranquilos y puedan revisar y controlar
-        desde cualquier lugar del mundo la temperatura de su hogar y
-        poder activar la calefccion para que en un frio día de invierno cuando
-        lleguen a casa, sean recibidos con una calida bienvenida gracias a que su
-        calefaccion fue activada gracias a nuestros sistema , ofreciendo un
-        servicio fiable y al alcanze de todos.
+        servicios de domótica. Nuestro principal objetivo es que nuestros
+        clientes puedan estar tranquilos, que puedan revisar y controlar desde
+        cualquier lugar del mundo la temperatura de su hogar.
       </p>
-      <h2 className="text-lg font-bold">Que podemos ofrecer...</h2>
-      <p className="pb-8">
+      <h2 className="text-lg font-bold mt-9">Qué podemos ofrecer</h2>
+      <p className="pb-6">
         Nuestra empresa ofrece instalaciones de infinidad de tipos, tantos como
-        nuestros clientes deseen, solo necesitan pensar en que neceistan y nosotros
-        aremos todo lo posible por que nuestro sistema instalado cumpla con todo lo
-        necesario y cumpla con las expectativas puestas en nosotros como profecionales,
-        aunque llevamos poco en el sector y seamos un empresa pequeña, nos esforzaremos
-        al maximo y ofreceremos un servicio de calidad, al alcance de todos los bolsillos
-        ya que tenemos presupuestos de todos los tipos, y si usted no esta seguro de lo
-        necesita no se preocupe, nosotros nos encargamos y le realizaremos un sesión
-        de consulta totalmente gratis, usted solamente nos tiene que decir cuales son 
-        sus necesidades y nosotros le ofreceromos la solución a sus problemas.
+        nuestros clientes deseen. Solo necesitan pensar en qué necesitan y
+        nosotros haremos todo lo posible porque nuestro sistema instalado cumpla
+        con las expectativas puestas en nosotros. Nos esforzaremos al máximo y
+        ofreceremos un servicio de calidad, al alcance de todos los bolsillos,
+        ya que tenemos presupuestos de todos los tipos. Si usted no está seguro
+        de lo que necesita no se preocupe, nosotros nos encargamos y le
+        realizaremos una sesión de consulta totalmente gratis. Solamente nos
+        tiene que decir cuáles son sus necesidades y nosotros le ofreceremos la
+        solución a sus problemas.
       </p>
     </div>
   );

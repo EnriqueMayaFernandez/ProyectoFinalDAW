@@ -49,7 +49,7 @@ export default function ListaUsuarios() {
   
 
   return (
-    <div className="border w-3/4 min-h-screen">
+    <div className="border w-3/4 min-h-screen mt-12 mb-12">
       <header className="sticky top-0 z-50 rounded-sm">
         <div className="bg-space-cadet p-4 grid grid-cols-5 rounded-sm">
           <Link
@@ -116,7 +116,7 @@ export default function ListaUsuarios() {
           </div>
         </div>
       </header>
-      <div className="min-h-screen space-y-6 bg-alice-blue divide-y-2 pr-3 pl-3">
+      <div className="space-y-6 bg-alice-blue divide-y-2 pr-3 pl-3 pb-3">
         {usuarios &&
           usuarios.map((usuario) =>
             usuario.nombreUsuario !== "SuperAdmin" && usuario.nombreUsuario!==JSON.parse(window.localStorage.getItem("usuarioLogin")).nombreUsuario ? (

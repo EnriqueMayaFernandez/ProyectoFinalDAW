@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import FormRegistroAdmin from "../../components/AdminFormRegistro/index";
+import StickyFooter from "../../components/StickyFooter/index";
+import Banner from "../../components/Banner/index";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminRegistro() {
@@ -17,7 +19,9 @@ export default function AdminRegistro() {
   return (
     <>
       <div className="min-h-screen flex flex-col items-center bg-shadow-blue">
+        <Banner></Banner>
         <FormRegistroAdmin></FormRegistroAdmin>
+        <StickyFooter></StickyFooter>
       </div>
     </>
   );

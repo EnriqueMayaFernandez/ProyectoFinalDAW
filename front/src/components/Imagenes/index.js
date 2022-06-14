@@ -6,7 +6,7 @@ import "./index.css";
 
 export default function Imagenes() {
   return (
-    <section className="bg-gray-900 h-screen flex justify-center items-center gap-x-16">
+    <section className="bg-gray-900 flex justify-center items-center gap-x-14 w-full">
       <div className="w-[300px] h-[420px] bg-transparent cursor-pointer group perspective">
         <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
           <div className="absolute backface-hidden w-full h-full">
@@ -20,10 +20,9 @@ export default function Imagenes() {
             <div className="text-center flex flex-col items-center justify-center h-full text-black px-2 pb-24">
               <h1 className="text-3xl font-semibold">Enrique Maya Fernández</h1>
               <p className="mt-2">
-                Soy un chico curioso al que siempre
-                le gusta aprender cosas nuevas para crecer como persona y como
-                un buen profesional dentro de este mundo tan interesante que es
-                el de la tecnología
+                Soy un chico curioso al que siempre le gusta aprender cosas
+                nuevas para crecer como persona y como un buen profesional
+                dentro de este mundo tan interesante que es el de la tecnología
               </p>
               <p className="my-2 font-bold">Linkedin:</p>
               <p>
@@ -52,6 +51,10 @@ export default function Imagenes() {
               <h1 className="text-3xl font-semibold">
                 Jose Luis Fernández Sánchez
               </h1>
+              <p className="mt-2">
+                Trabajador constante, con valores comprometidos con el
+                desarrollo y éxito de TermoApp.
+              </p>
               <p className="my-2 font-bold">Linkedin:</p>
               <p>
                 <a
@@ -77,6 +80,10 @@ export default function Imagenes() {
           <div className="absolute my-rotate-y-180 backface-hidden w-full h-full bg-white overflow-hidden border-2 rounded-md">
             <div className="text-center flex flex-col items-center justify-center h-full text-black px-2 pb-24">
               <h1 className="text-3xl font-semibold">Víctor Álvarez Ávila</h1>
+              <p className="mt-2">
+                Joven entusiasta de las tecnologías y de las relaciones
+                interpersonales. Empático por naturaleza.
+              </p>
               <p className="my-2 font-bold">Linkedin:</p>
               <p>
                 <a

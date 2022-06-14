@@ -62,20 +62,21 @@ export default function FormRegister() {
       }}
     >
       {({ errors }) => (
-        <div className="w-3/6 bg-white p-12 rounded-lg border-black border-2 mt-24">
+        <div className="w-3/6 bg-white p-12 rounded-lg border-black border-2 mt-24 mb-24">
+          <div className="text-2xl mb-7">Modificar usuario</div>
           <Form className="formulario space-y-2.5 flex flex-col">
             <div className="w-full flex flex-row">
               <label
                 htmlFor="nombreUsuario"
                 className="text-center bg-blush w-1/4 rounded-l-lg p-1 shadow-md"
               >
-                Nombre Usuario
+                Nombre usuario
               </label>
               <Field
                 type="text"
                 id="nombreUsuario"
                 name="nombreUsuario"
-                placeholder="Manolito14"
+                placeholder=""
                 className="bg-alice-blue w-3/4 rounded-r-lg border-black p-1 shadow-md"
               />
             </div>
@@ -111,7 +112,7 @@ export default function FormRegister() {
                 htmlFor="claveRepetida"
                 className="text-center bg-blush w-3/12 rounded-l-lg p-1 shadow-md"
               >
-                Repita la Contraseña
+                Repita la contraseña
               </label>
               <Field
                 type="password"
@@ -171,7 +172,7 @@ export default function FormRegister() {
                 type="submit"
                 className="bg-paradise-pink w-full mt-2 rounded p-1 shadow-md"
               >
-                Modificar Usuario
+                Modificar usuario
               </button>
               <button
                 type="button"
